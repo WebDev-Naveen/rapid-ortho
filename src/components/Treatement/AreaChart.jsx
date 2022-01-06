@@ -7,11 +7,10 @@ import getRateByMonth from "../../utils/TrendIntialSurgry";
 const AreaChart = () => {
   const { filteredChartValues } = useContext(ChartValuesContext);
   const [chartValues, setChartValues] = React.useState({
-    initialSurg: [],
-    conservManagement: [],
+    initialSurg: [0, 0, 0, 0, 0, 0, 0, 0],
+    conservManagement: [0, 0, 0, 0, 0, 0, 0, 0],
   });
   React.useEffect(() => {
-    console.log(filteredChartValues);
     setChartValues({
       initialSurg: getRateByMonth(filteredChartValues, "Trt_surg"),
       conservManagement: getRateByMonth(filteredChartValues, "Trt_conserv"),

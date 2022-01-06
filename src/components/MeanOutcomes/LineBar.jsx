@@ -28,10 +28,7 @@ const Par = styled.p`
 const Style = styled.div`
   margin-left: 20px;
 `;
-const Style1 = styled.div`
-  margin-top: 10px;
-  margin-left: 20px;
-`;
+
 const Prog = styled.p`
   margin-left: 20px;
   margin-top: 10px;
@@ -63,8 +60,12 @@ const Tool = styled.span`
 const LineBar = () => {
   const { filteredChartValues } = React.useContext(ChartValuesContext);
   const [promisScore, setPromisScore] = React.useState({
-    promisInitial: [0, 1],
-    promisConserv: [0, 1],
+    promisInitial: [0, 1, 3, 5],
+    promisConserv: [0, 1, 3, 5],
+  });
+  const [painScores, setPainScores] = React.useState({
+    painInitial: [0, 1, 3, 5],
+    painConserv: [0, 1, 3, 5],
   });
   const [stackBarValues, setStackBarValues] = React.useState({
     sane: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -72,12 +73,12 @@ const LineBar = () => {
   });
 
   const [forwardFlexion, setForwardFlexion] = React.useState({
-    forwardInitial: [0, 1],
-    forwardConserv: [0, 1],
+    forwardInitial: [0, 1, 3, 5],
+    forwardConserv: [0, 1, 3, 5],
   });
   const [rangeMotion, setRangeMotion] = React.useState({
-    rangeInitial: [0, 1],
-    rangeConserv: [0, 1],
+    rangeInitial: [0, 1, 3, 5],
+    rangeConserv: [0, 1, 3, 5],
   });
 
   React.useEffect(() => {
@@ -90,7 +91,8 @@ const LineBar = () => {
     let rangeConservValues = [];
     let promisInitalValues = [];
     let promiseConservValues = [];
-
+    let painInitalValues = [];
+    let painConservValues = [];
     months.forEach((m) => {
       const forwardVal = getAvgInitialSurgAndConservativeManagement(
         `FwdFlex_${m}`,
@@ -98,10 +100,13 @@ const LineBar = () => {
       );
       forwardConservValues.push(forwardVal[1]);
       forwardIntialValues.push(forwardVal[0]);
-      // const forwardVal = getAvgInitialSurgAndConservativeManagement(
-      //   `FwdFlex_${m}`,
-      //   filteredChartValues
-      // );
+      const painVal = getAvgInitialSurgAndConservativeManagement(
+        `VAPS_${m}`,
+        filteredChartValues
+      );
+      painInitalValues.push(painVal[0]);
+      painConservValues.push(painVal[1]);
+
       const rangeVal = getAvgInitialSurgAndConservativeManagement(
         `Abduction_${m}`,
         filteredChartValues
@@ -133,17 +138,21 @@ const LineBar = () => {
       constant: constantValues.flat(),
     });
     setForwardFlexion({
-      forwardInitial: forwardIntialValues.flat(),
-      forwardConserv: forwardConservValues.flat(),
+      forwardInitial: forwardIntialValues,
+      forwardConserv: forwardConservValues,
     });
     setRangeMotion({
-      rangeInitial: rangeInitialValues.flat(),
-      rangeConserv: rangeConservValues.flat(),
+      rangeInitial: rangeInitialValues,
+      rangeConserv: rangeConservValues,
     });
 
     setPromisScore({
-      promisInitial: promisInitalValues.flat(),
-      promisConserv: promiseConservValues.flat(),
+      promisInitial: promisInitalValues,
+      promisConserv: promiseConservValues,
+    });
+    setPainScores({
+      painInitial: painInitalValues,
+      painConserv: painConservValues,
     });
   }, [filteredChartValues]);
 
@@ -190,20 +199,41 @@ const LineBar = () => {
           <ReactTooltip />
           <Tool data-tip="Conservative">i</Tool>
         </Par>
-        <Prog>Three Months</Prog>
-        <Span>0</Span>
-        <Span1>5</Span1>
-        <Span1>10</Span1>
-        <Style>
-          {" "}
-          <ProgressChart bgcolor="#A3A1FB" progress="20" height={15} />
-        </Style>
-        <Style1>
-          {" "}
-          <ProgressChart bgcolor="#5CDAFE" progress="20" height={15} />
-        </Style1>
+        {painScores?.painInitial.map((val, index) => (
+          <React.Fragment key={index}>
+            <Prog>
+              {index === 0
+                ? "Three Months"
+                : index === 1
+                ? "Six Months"
+                : index === 2
+                ? "One Year"
+                : "Two Years"}
+            </Prog>
+            <Span>0</Span>
+            <Span1>5</Span1>
+            <Span1>10</Span1>
+            <Style>
+              <ProgressChart
+                bgcolor="#A3A1FB"
+                progress={`${val.toFixed(0)}`}
+                height={15}
+              />
+            </Style>
+            <Span>0</Span>
 
-        <Prog>Six Months</Prog>
+            <Span1 style={{ marginLeft: "310px" }}>10</Span1>
+            <Style>
+              <ProgressChart
+                bgcolor="#5CDAFE"
+                progress={`${painScores?.painConserv[index].toFixed(0)}`}
+                height={15}
+              />
+            </Style>
+          </React.Fragment>
+        ))}
+
+        {/* <Prog>Six Months</Prog>
         <Span>0</Span>
         <Span1>5</Span1>
         <Span1>10</Span1>
@@ -214,7 +244,6 @@ const LineBar = () => {
         <Span1>5</Span1>
         <Span1>10</Span1>
         <Style>
-          {" "}
           <ProgressChart bgcolor="#5CDAFE" progress="20" height={15} />
         </Style>
 
@@ -223,14 +252,12 @@ const LineBar = () => {
         <Span1>5</Span1>
         <Span1>10</Span1>
         <Style>
-          {" "}
           <ProgressChart bgcolor="#A3A1FB" progress="20" height={15} />
         </Style>
         <Span>0</Span>
         <Span1>5</Span1>
         <Span1>10</Span1>
         <Style>
-          {" "}
           <ProgressChart bgcolor="#5CDAFE" progress="20" height={15} />
         </Style>
 
@@ -239,7 +266,6 @@ const LineBar = () => {
         <Span1>5</Span1>
         <Span1>10</Span1>
         <Style>
-          {" "}
           <ProgressChart bgcolor="#A3A1FB" progress="20" height={15} />
         </Style>
         <Span>0</Span>
@@ -247,7 +273,7 @@ const LineBar = () => {
         <Span1>10</Span1>
         <Style>
           <ProgressChart bgcolor="#5CDAFE" progress="20" height={15} />
-        </Style>
+        </Style> */}
       </div>
 
       <div className="promise">

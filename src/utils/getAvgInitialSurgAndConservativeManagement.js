@@ -20,10 +20,13 @@ export const getAvgInitialSurgAndConservativeManagement = (
       trtConservLength++;
     }
   });
+  if (trtSurgLength && trtConservLength) {
+    initialSurgery = (sumOfTrt_surg / trtSurgLength).toFixed(2);
 
-  initialSurgery = (sumOfTrt_surg / trtSurgLength).toFixed(2);
+    conservativeManagement = (sumOfTrt_conserv / trtConservLength).toFixed(2);
 
-  conservativeManagement = (sumOfTrt_conserv / trtConservLength).toFixed(2);
-
-  return [Number(initialSurgery), Number(conservativeManagement)];
+    return [Number(initialSurgery), Number(conservativeManagement)];
+  } else {
+    return [0, 0];
+  }
 };

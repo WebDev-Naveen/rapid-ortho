@@ -10,17 +10,11 @@ const ProgressChart = ({ bgcolor, progress, height }) => {
 
   const Childdiv = {
     height: "100%",
-    width: `${progress}%`,
+    width: `${progress}0%`,
     backgroundColor: bgcolor,
     borderRadius: 40,
     textAlign: "right",
   };
-
-  // const progresstext = {
-  //   padding: 10,
-  //   color: 'black',
-  //   fontWeight: 900
-  // }
 
   return (
     <div style={Parentdiv}>

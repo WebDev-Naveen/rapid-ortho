@@ -10,6 +10,7 @@ const Select = styled.select`
   width: ${(props) => props.width};
   border-radius: 4px;
   font-size: 0.875rem;
+  font-family: "Poppins";
 `;
 
 function DropDown({ options, name, width }) {

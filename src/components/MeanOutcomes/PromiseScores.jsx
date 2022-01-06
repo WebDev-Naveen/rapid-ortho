@@ -27,7 +27,7 @@ const Head = styled.h4`
   margin-top: 10px;
   font-size: 16px;
   margin-bottom: 10px;
-  color: blue;
+  color: ${(props) => props.color && props.color};
 `;
 const Span = styled.span`
   font-size: 10px;
@@ -39,10 +39,12 @@ const PromiseScores = ({ year, value }) => {
       <Container>
         <Div>
           <P>
-            <Head>{value?.initalSurg}</Head> <Span>Initial Surgery</Span>{" "}
+            <Head color="#A3A1FB">{value?.initalSurg}</Head>{" "}
+            <Span>Initial Surgery</Span>{" "}
           </P>
           <P>
-            <Head>{value?.conserv}</Head> <Span>Conservative Management</Span>
+            <Head color="#5CDAFE">{value?.conserv}</Head>{" "}
+            <Span>Conservative Management</Span>
           </P>
         </Div>
         <p>{year}</p>

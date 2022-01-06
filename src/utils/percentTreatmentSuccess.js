@@ -17,16 +17,22 @@ export const percentTreatmentSucsess = (filteredValues) => {
       sumOfTrt_conserv += data.Trt_success;
     }
   });
+  if (trtSurgLength && trtConservLength) {
+    initialSurgery = ((sumOfTrt_surg * 100) / trtSurgLength).toFixed(2);
 
-  initialSurgery = ((sumOfTrt_surg * 100) / trtSurgLength).toFixed(2);
+    conservativeManagement = (
+      (sumOfTrt_conserv * 100) /
+      trtConservLength
+    ).toFixed(2);
 
-  conservativeManagement = (
-    (sumOfTrt_conserv * 100) /
-    trtConservLength
-  ).toFixed(2);
-
-  return {
-    initialSurgery: Number(initialSurgery),
-    conservativeManagement: Number(conservativeManagement),
-  };
+    return {
+      initialSurgery: Number(initialSurgery),
+      conservativeManagement: Number(conservativeManagement),
+    };
+  } else {
+    return {
+      initialSurgery: 0,
+      conservativeManagement: 0,
+    };
+  }
 };

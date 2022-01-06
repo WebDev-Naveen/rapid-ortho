@@ -11,8 +11,8 @@ const ChartContainer = styled.div`
 `;
 
 const DonutChart = ({ value }) => {
-  console.log(value);
-  const series = value;
+  const series = value[0] === 0 && value[1] === 0 ? [50, 50] : value;
+
   const options = {
     labels: [
       `${value[0]}% Intial Surgery`,

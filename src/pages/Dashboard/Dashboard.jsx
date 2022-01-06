@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import SideBar from "./SideBar";
 import Chartbar from "../../components/ChartBar/Chartbar";
-import { getAvgInitialSurgAndConservativeManagement } from "../../utils/getAvgInitialSurgAndConservativeManagement";
-
-import { ChartValuesContext } from "../../utils/Contexts/ChartValues";
 
 const MainView = styled.main`
   padding: 0 15px;
@@ -24,14 +21,6 @@ const DashBoardContainer = styled.div`
 `;
 
 const Dashboard = () => {
-  const { filteredChartValues } = useContext(ChartValuesContext);
-
-  React.useEffect(() => {
-    getAvgInitialSurgAndConservativeManagement("VAPS_3m", filteredChartValues);
-    getAvgInitialSurgAndConservativeManagement("VAPS_6m", filteredChartValues);
-    getAvgInitialSurgAndConservativeManagement("VAPS_12m", filteredChartValues);
-    getAvgInitialSurgAndConservativeManagement("VAPS_24m", filteredChartValues);
-  }, [filteredChartValues]);
   return (
     <MainView>
       <h1>

@@ -10,8 +10,11 @@ export const getSum = (key, filteredValues) => {
       sum += data[key];
     }
   });
+  if (n) {
+    rate = ((sum * 100) / n).toFixed(2);
 
-  rate = ((sum * 100) / n).toFixed(2);
-
-  return rate;
+    return rate;
+  } else {
+    return 0;
+  }
 };

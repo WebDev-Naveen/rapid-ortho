@@ -45,13 +45,18 @@ export const getHighVolume = (filteredValues) => {
       }
     }
   });
-  const initialSurgery = (
-    (sumTrt_surg * 100) /
-    sumOfPatientTopProviders
-  ).toFixed(2);
-  const conservationManagement = (
-    (sumTrt_conserv * 100) /
-    sumOfPatientTopProviders
-  ).toFixed(2);
-  return [Number(initialSurgery), Number(conservationManagement)];
+  if (sumOfPatientTopProviders) {
+    const initialSurgery = (
+      (sumTrt_surg * 100) /
+      sumOfPatientTopProviders
+    ).toFixed(2);
+    const conservationManagement = (
+      (sumTrt_conserv * 100) /
+      sumOfPatientTopProviders
+    ).toFixed(2);
+    return [Number(initialSurgery), Number(conservationManagement)];
+  }
+  else {
+    return [0, 0];
+  }
 };

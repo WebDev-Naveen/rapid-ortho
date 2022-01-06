@@ -16,12 +16,15 @@ export const getHistory = (filteredValues) => {
       }
     }
   });
+  if (totalPatient) {
+    const intialSurgery = ((sumTrt_Surg * 100) / totalPatient).toFixed(2);
+    const conservationManagement = (
+      (sumTrt_conserv * 100) /
+      totalPatient
+    ).toFixed(2);
 
-  const intialSurgery = ((sumTrt_Surg * 100) / totalPatient).toFixed(2);
-  const conservationManagement = (
-    (sumTrt_conserv * 100) /
-    totalPatient
-  ).toFixed(2);
-
-  return [Number(intialSurgery), Number(conservationManagement)];
+    return [Number(intialSurgery), Number(conservationManagement)];
+  } else {
+    return [0, 0];
+  }
 };

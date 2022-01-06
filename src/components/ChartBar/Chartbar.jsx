@@ -73,6 +73,7 @@ const Head = styled.h4`
   font-size: 20px;
   margin-bottom: 40px;
   color: #cfcefd;
+  font-family: "Poppins";
 `;
 const Span = styled.span`
   font-size: 16px;

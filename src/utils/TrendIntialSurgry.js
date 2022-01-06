@@ -16,10 +16,21 @@ const TrendIntialSurgry = (filteredValues, key) => {
 
 const getRateByMonth = (filteredValues, key) => {
   let values = [];
-  const q1 = filteredValues.filter((data) => data.Quarter === "Q1");
-  const q2 = filteredValues.filter((data) => data.Quarter === "Q2");
-  const q3 = filteredValues.filter((data) => data.Quarter === "Q3");
-  const q4 = filteredValues.filter((data) => data.Quarter === "Q4");
+  let q1 = [];
+  let q2 = [];
+  let q3 = [];
+  let q4 = [];
+  filteredValues?.forEach((val) => {
+    if (val.Quarter === "Q1") {
+      q1.push(val);
+    } else if (val.Quarter === "Q2") {
+      q2.push(val);
+    } else if (val.Quarter === "Q3") {
+      q3.push(val);
+    } else {
+      q4.push(val);
+    }
+  });
 
   for (let i = 1; i <= 4; i++) {
     switch (i) {
@@ -39,8 +50,11 @@ const getRateByMonth = (filteredValues, key) => {
         console.log(i);
     }
   }
-
-  return values;
+  if (values.length > 0) {
+    return values;
+  } else {
+    return [0, 0, 0, 0, 0, 0, 0, 0];
+  }
 };
 
 export default getRateByMonth;
