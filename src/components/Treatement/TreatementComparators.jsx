@@ -82,8 +82,8 @@ const TreatementComparators = () => {
   const { filteredChartValues } = useContext(ChartValuesContext);
 
   const [donutValue, setDonutValue] = React.useState({
-    historyRate: [],
-    volumeRate: [],
+    historyRate: [0, 10],
+    volumeRate: [0, 10],
   });
   const [rate, setRate] = React.useState({
     initialSurg: 0,

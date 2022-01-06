@@ -63,21 +63,21 @@ const Tool = styled.span`
 const LineBar = () => {
   const { filteredChartValues } = React.useContext(ChartValuesContext);
   const [promisScore, setPromisScore] = React.useState({
-    promisInitial: [],
-    promisConserv: [],
+    promisInitial: [0, 1],
+    promisConserv: [0, 1],
   });
   const [stackBarValues, setStackBarValues] = React.useState({
-    sane: [],
-    constant: [],
+    sane: [1, 2, 3, 4, 5, 6, 7, 8],
+    constant: [2, 10, 32, 43, 54, 65, 76, 85],
   });
 
   const [forwardFlexion, setForwardFlexion] = React.useState({
-    forwardInitial: [],
-    forwardConserv: [],
+    forwardInitial: [0, 1],
+    forwardConserv: [0, 1],
   });
   const [rangeMotion, setRangeMotion] = React.useState({
-    rangeInitial: [],
-    rangeConserv: [],
+    rangeInitial: [0, 1],
+    rangeConserv: [0, 1],
   });
 
   React.useEffect(() => {

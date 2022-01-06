@@ -98,11 +98,11 @@ const Chartbar = () => {
   const { filteredChartValues } = React.useContext(ChartValuesContext);
 
   const [values, setValues] = React.useState({
-    orthoVisits: [],
-    hospAdmissions: [],
-    injections: [],
-    ptVisits: [],
-    success: {},
+    orthoVisits: [0, 10],
+    hospAdmissions: [0, 10],
+    injections: [0, 10],
+    ptVisits: [0, 10],
+    success: { initialSurgery: 0, conservativeManagement: 0 },
     conSurg: 0,
   });
   React.useEffect(() => {

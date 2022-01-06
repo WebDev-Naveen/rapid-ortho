@@ -3,10 +3,7 @@ import styled from "styled-components";
 import SideBar from "./SideBar";
 import Chartbar from "../../components/ChartBar/Chartbar";
 import { getAvgInitialSurgAndConservativeManagement } from "../../utils/getAvgInitialSurgAndConservativeManagement";
-import { percentTreatmentSucsess } from "../../utils/percentTreatmentSuccess";
-import { getSum } from "../../utils/getSum";
-import { getHighVolume } from "../../utils/getHighVolume";
-import { getHistory } from "../../utils/getHistory";
+
 import { ChartValuesContext } from "../../utils/Contexts/ChartValues";
 
 const MainView = styled.main`
@@ -28,7 +25,7 @@ const DashBoardContainer = styled.div`
 
 const Dashboard = () => {
   const { filteredChartValues } = useContext(ChartValuesContext);
-  console.log("asdfasdf", filteredChartValues);
+
   React.useEffect(() => {
     getAvgInitialSurgAndConservativeManagement("VAPS_3m", filteredChartValues);
     getAvgInitialSurgAndConservativeManagement("VAPS_6m", filteredChartValues);
