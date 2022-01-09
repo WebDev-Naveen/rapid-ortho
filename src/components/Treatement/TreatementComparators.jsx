@@ -8,6 +8,7 @@ import { ChartValuesContext } from "../../utils/Contexts/ChartValues";
 import { getHistory } from "../../utils/getHistory";
 import { getHighVolume } from "../../utils/getHighVolume";
 import ReactTooltip from "react-tooltip";
+import img1 from "../../assets/images/icon.ico";
 
 const MainContainer = styled.div`
   background: #fff;
@@ -67,16 +68,9 @@ const P = styled.p`
   margin-top: 20px;
   text-align: center;
 `;
-const Tool = styled.span`
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  margin-left: 2px;
-  margin-top: -50px;
-  color: white;
-  font-size: 10px;
-`;
+const Tool = styled.span``;
+
+
 
 const TreatementComparators = () => {
   const { filteredChartValues } = useContext(ChartValuesContext);
@@ -106,12 +100,21 @@ const TreatementComparators = () => {
         <FirstContainer>
           <P1>
             Initial Surgery Rate <ReactTooltip />
-            <Tool
-              data-tip="Early or Intial Surgery is defined as patients
-           receiving surgical treatment within 30 days of diagnosis."
-            >
-              i
-            </Tool>
+            <img
+              src={img1}
+              alt="ToolTip"
+              width="15px"
+              height="15px"
+              data-tip
+              data-for="sad"
+            />
+            <ReactTooltip id="sad" className="Tooltip" type="dark" place="bottom" effect="solid">
+              <span>
+                Early or Intial Surgery is <br></br> defined as patients
+                receiving surgical treatment<br></br> within 30 days of
+                diagnosis
+              </span>
+            </ReactTooltip>
           </P1>
 
           <HalfDonutChart
@@ -123,13 +126,25 @@ const TreatementComparators = () => {
           <P1>
             Initial-Conservative Management Rate
             <ReactTooltip />
-            <Tool
-              data-tip="Conservative Treatment is defined as patients
-           receiving surgical treatment within 30 days of diagnosis."
-            >
-              i
-            </Tool>
+             <img
+              src={img1}
+              alt="ToolTip"
+              width="15px"
+              height="15px"
+              data-tip
+              data-for="sadjk"
+            />
+            <ReactTooltip id="sadjk" className="Tooltip" type="dark" place="bottom" effect="solid">
+              <span>
+                Conservative Treatement is <br></br> defined as patients
+                receiving surgical treatment<br></br> within 30 days of
+                diagnosis
+              </span>
+            </ReactTooltip>
+           
           </P1>
+         
+         
           <HalfDonutChart
             colors={["#FFDA83", "#F0F2F8"]}
             rate={rate?.conservManagement}
@@ -153,7 +168,10 @@ const TreatementComparators = () => {
           <P3>
             High-Volume physicians'
             <ReactTooltip />
-            <Tool data-tip="Conservative">i</Tool>'historical practice patterns
+            <Tool data-tip="Conservative">
+              <img src={img1} alt="ToolTip" width="15px" height="15px" />
+            </Tool>
+            'historical practice patterns
           </P3>
           <DonutChart value={donutValue?.volumeRate} />
         </ThirdContainer>

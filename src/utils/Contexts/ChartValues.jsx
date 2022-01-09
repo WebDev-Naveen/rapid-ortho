@@ -1,3 +1,4 @@
+import { isNumber } from "lodash";
 import React, { createContext, useState, useEffect } from "react";
 
 import mockData from "../../mockData.json";
@@ -18,7 +19,9 @@ function ChartValuesProvider(props) {
       for (let i in filterValues) {
         if (i in data) {
           if (i !== "Age") {
-            if (filter[i] === data[i]) {
+            if (isNumber(filter[i]) && filter[i] === 2) {
+              filterTrueCount = filterTrueCount + 1;
+            } else if (filter[i] === data[i]) {
               filterTrueCount = filterTrueCount + 1;
             }
           }

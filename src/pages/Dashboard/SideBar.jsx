@@ -4,7 +4,7 @@ import RadioButton from "./RadioButton";
 import FractureCharacterstics from "./FractureCharacterstics";
 import RangeBar from "../../components/RangeBar.jsx/RangeBar";
 import { useForm, FormProvider, Controller } from "react-hook-form";
-
+import img1 from "../../assets/images/icon.ico";
 import { ChartValuesContext } from "../../utils/Contexts/ChartValues";
 import SwitchToggleWithTitle from "../../components/SwitchToggle/SwitchToggleWithTitle";
 import ReactTooltip from "react-tooltip";
@@ -115,17 +115,7 @@ const Toggle = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-const Tool = styled.span`
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  place: top;
-
-  color: white;
-  font-size: 12px;
-`;
+const Tool = styled.span``;
 
 const SideBar = () => {
   const { setFilterValues, filteredChartValues } =
@@ -242,13 +232,17 @@ const SideBar = () => {
               <Toggle style={{ width: "45%" }}>
                 <Title style={{ width: "60%" }}>Live at home</Title>
                 <ReactTooltip />
-                <Tool data-tip="Conservative">i</Tool>
+                <Tool data-tip="Live_at_home">
+                  <img src={img1} alt="ToolTip" width="15px" height="15px" />
+                </Tool>
                 <SwitchToggleWithTitle name={"Live_at_home"} />
               </Toggle>
               <Toggle>
                 <Title>Frail</Title>
                 <ReactTooltip />
-                <Tool data-tip="Conservative">i</Tool>
+                <Tool data-tip="Frail">
+                  <img src={img1} alt="ToolTip" width="15px" height="15px" />{" "}
+                </Tool>
                 <SwitchToggleWithTitle name={"Frail"} />
               </Toggle>
             </ToggleBar>

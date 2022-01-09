@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import HalfDonutChart from "../ChartBar/HalfDonutChart";
-import ReactTooltip from "react-tooltip";
+import ReactTooltip from 'react-tooltip';
+import img1 from "../../assets/images/icon.ico";
 
 const Section = styled.div`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -41,29 +42,24 @@ const P1 = styled.p`
   text-align: center;
 `;
 const Tool = styled.span`
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  margin-left: 4px;
-  color: white;
-  font-size: 10px;
+margin-left:5px;
+ 
 `;
 const SucessRate = ({ value }) => {
   return (
     <Section>
-      <P>
-        Percentage of patients reaching Treatment Success
-        <ReactTooltip />
-        <Tool data-tip="Conservative">i</Tool>
-      </P>
+      <P>Percentage of patients reaching Treatment Success<ReactTooltip/>
+      <Tool data-tip="Percentage of patients reaching Treatment Success">
+      <img src={img1} alt="ToolTip" width="15px" height="15px"/>
+      </Tool></P>
       <Container>
         <HalfChartContainer>
           <FirstContainer>
             <P1>
               Initial Surgery
-              <ReactTooltip />
-              <Tool data-tip="Conservative">i</Tool>
+              <ReactTooltip width="100px"/>
+              <Tool data-tip="Initial Surgery">
+              <img src={img1} alt="ToolTip" width="15px" height="15px"/></Tool>
             </P1>
             <HalfDonutChart
               colors={["#A4A1FB", "#F0F2F8"]}
@@ -76,8 +72,9 @@ const SucessRate = ({ value }) => {
           <FirstContainer>
             <P1>
               Conservative Management
-              <ReactTooltip />
-              <Tool data-tip="Conservative">i</Tool>
+              <ReactTooltip width="100px"/>
+              <Tool data-tip="Conservative Management">
+              <img src={img1} alt="ToolTip" width="15px" height="15px"/></Tool>
             </P1>
 
             <HalfDonutChart

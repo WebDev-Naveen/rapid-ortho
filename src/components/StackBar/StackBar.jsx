@@ -16,6 +16,7 @@ const StackBar = ({ text, value }) => {
     chart: {
       toolbar: {
         show: false,
+        reset: true | '<img src="/static/icons/reset.png" width="20">',
       },
 
       type: "bar",
@@ -135,48 +136,33 @@ const StackBar = ({ text, value }) => {
       },
     },
 
-    tooltip: {
+    onDatasetHover: {
+      highlightDataSeries: false,
+    },
+    x: {
+      show: true,
+      format: "dd MMM",
+      formatter: undefined,
+    },
+    y: {
+      formatter: undefined,
+      title: {
+        formatter: (seriesName) => seriesName,
+      },
+    },
+    z: {
+      formatter: undefined,
+      title: "Size: ",
+    },
+    marker: {
+      show: true,
+    },
+    items: {},
+    fixed: {
       enabled: true,
-      enabledOnSeries: undefined,
-      shared: true,
-      followCursor: true,
-      intersect: false,
-      inverseOrder: false,
-      custom: undefined,
-      fillSeriesColor: false,
-      theme: false,
-      style: {
-        fontSize: "12px",
-        fontFamily: undefined,
-      },
-      onDatasetHover: {
-        highlightDataSeries: false,
-      },
-      x: {
-        show: true,
-        format: "dd MMM",
-        formatter: undefined,
-      },
-      y: {
-        formatter: undefined,
-        title: {
-          formatter: (seriesName) => seriesName,
-        },
-      },
-      z: {
-        formatter: undefined,
-        title: "Size: ",
-      },
-      marker: {
-        show: true,
-      },
-      items: {},
-      fixed: {
-        enabled: true,
-        position: "topRight",
-        offsetX: 0,
-        offsetY: 0,
-      },
+      position: "topRight",
+      offsetX: 0,
+      offsetY: 0,
     },
   };
   return (

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DropDown from "../../components/DropDown/DropDown";
 import ReactTooltip from 'react-tooltip';
 import SwitchToggleWithTitle from "../../components/SwitchToggle/SwitchToggleWithTitle";
+import img1 from "../../assets/images/icon.ico";
 const MainContainer = styled.section`
   margin: 0 20px;
 `;
@@ -29,14 +30,8 @@ const AmountOFDisplacement = styled.div`
   align-items: center;
 `;
 const Tool = styled.span`
-  padding-left:10px;
-  padding-right:10px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  margin-left:4px; 
-  color:white;
-  font-size: 10px;
- 
+ margin-bottom: 50px;
+ margin-left: 5px;
 `;
 const Location = styled(AmountOFDisplacement)`
   width: 49%;
@@ -50,7 +45,9 @@ const FractureCharacterstics = () => {
     <MainContainer>
       <Location style={{ width: "45%" }}>
         <Title style={{ width: "65%" }}>Injury of dominant shoulder
-        <ReactTooltip/><Tool data-tip="Conservative">i</Tool></Title>
+        <ReactTooltip/><Tool data-tip="Injury of dominant shoulder">
+        <img src={img1} alt="ToolTip" width="15px" height="15px"/> 
+        </Tool></Title>
         <SwitchToggleWithTitle name={"Dominant_side"} />
       </Location>
       <SelectDetails>
@@ -99,7 +96,9 @@ const FractureCharacterstics = () => {
           </Parts>
           <AmountOFDisplacement>
             <Title style={{ width: "70%" }}>Other concurrent fractures
-            <ReactTooltip/><Tool data-tip="Conservative">i</Tool></Title>
+            <ReactTooltip/><Tool data-tip="Other concurrent fractures">
+            <img src={img1} alt="ToolTip" width="15px" height="15px"/> </Tool>
+            </Title>
             <SwitchToggleWithTitle name={"Other_fx"} />
           </AmountOFDisplacement>
         </FirstContainer>

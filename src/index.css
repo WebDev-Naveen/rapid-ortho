@@ -248,8 +248,13 @@ style {
 }
 
 .wrapper {
-  width: 60%;
+ 
   margin-top: 20px;
+  width: 65%;
+  margin-left: 20px;
+  background: white;
+  height: fit-content;
+  padding-bottom: 30px;
 
   display: grid;
   grid-template-rows: 200px 100px 100px 100px;
@@ -309,3 +314,11 @@ style {
   height: 400px;
   margin-top: 120px;
 }
+
+.Tooltip {
+ 
+  background-color: #B6C6E0 !important;
+  width:300px;
+  
+ }
+

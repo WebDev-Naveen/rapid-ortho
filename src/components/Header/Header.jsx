@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import img1 from "../../assets/images/logo.jpg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch,faComments,faBell } from '@fortawesome/free-solid-svg-icons'
+import img2 from "../../assets/images/bb.png";
 
 const Nav = styled.nav`
   display: flex;
@@ -14,7 +17,7 @@ const Nav = styled.nav`
 `;
 const Search = styled.div``;
 const H6 = styled.h6`
-  margin-top: 5px;
+  margin-top: 2px;
   margin-left: 5px;
 `;
 const SecondContainer = styled.div`
@@ -68,7 +71,7 @@ const Select = styled.select`
 `;
 const Span = styled.span`
   position: absolute;
-  top: 20px;
+  top: 25px;
 
   border-radius: 50%;
 
@@ -76,7 +79,7 @@ const Span = styled.span`
   height: 5px;
   background-color: #ffc06a;
   border-radius: 50%;
-  margin-right: 100px;
+  margin-right: 120px;
 `;
 const Img = styled.img`
   border-radius: 50%;
@@ -105,22 +108,22 @@ const Header = () => {
   return (
     <>
       <Nav>
-        <Search>S</Search>
+        <Search><FontAwesomeIcon icon={faSearch} color="#E6E6EC" /></Search>
         <H6>Have a question?</H6>
         <SecondContainer>
           <ul>
             <li>
-              <button>B</button>
+              <button><Img src={img2} alt="Header" width="25px" height="25px" /></button>
             </li>
           </ul>
         </SecondContainer>
         <Container>
           <ul>
             <li>
-              <button>Chat</button>
+              <button><FontAwesomeIcon icon={faComments} color="#BCBCCB" /></button>
             </li>
             <li>
-              <button>N </button>
+              <button><FontAwesomeIcon icon={faBell} color="#BCBCCB" /></button>
               <Span className="badge"></Span>
             </li>
             <li>

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ReactTooltip from 'react-tooltip';
+import img1 from "../../assets/images/icon.ico";
+
 const Section = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -61,15 +63,12 @@ const FirstContainer = styled.div`
   flex-direction: column;
 `;
 const Tool = styled.span`
-  padding-left:10px;
-  padding-right:10px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  margin-left:4px; 
-
-  color:white;
-  font-size: 10px;
+margin-left: 5px;
+margin-bottom:15;
  
+`;
+const Img = styled.img`
+border-radius: 50%;
 `;
 
 /*const SecondContainer = styled(FirstContainer)``;
@@ -82,7 +81,9 @@ const HealthcareUtilizationOutcomes = ({ title, value1, value2 }) => {
       <FirstContainer>
         <MainContainer>
           <Container>
-            <Title>{title}<ReactTooltip/><Tool data-tip="Conservative">i</Tool></Title>
+            <Title>{title}<ReactTooltip/><Tool data-tip="Conservative">
+            <Img src={img1} alt="ToolTip" width="15px" height="15px"/>
+            </Tool></Title>
             <Div>
               <P>
                 <Head>{`${value1}`}</Head> <Span>Initial Surgery</Span>

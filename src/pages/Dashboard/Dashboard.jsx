@@ -9,7 +9,7 @@ const MainView = styled.main`
   h1 {
     text-align: center;
     width: 100%;
-    font-family: "PoppinsSemiBold";
+    font-family: "Poppins";
 
     margin: 10px;
   }

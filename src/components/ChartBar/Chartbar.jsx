@@ -8,10 +8,12 @@ import HealthcareUtilizationOutcomes from "../HealthcareUtilization/HealthcareUt
 import MeanOutcomeScores from "../MeanOutcomes/MeanOutcomeScores";
 import TreatementComparators from "../Treatement/TreatementComparators";
 import SucessRate from "../HealthcareUtilization/SucessRate";
+import img1 from "../../assets/images/icon.ico";
 import { ChartValuesContext } from "../../utils/Contexts/ChartValues";
 import { getAvgInitialSurgAndConservativeManagement } from "../../utils/getAvgInitialSurgAndConservativeManagement";
 import { percentTreatmentSucsess } from "../../utils/percentTreatmentSuccess";
 import { getSum } from "../../utils/getSum";
+import ReactTooltip from "react-tooltip";
 
 const CharBarContainer = styled.div`
   width: 65%;
@@ -83,15 +85,10 @@ const FirstContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Tool = styled.span`
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  margin-left: 4px;
+const Tool = styled.span``;
 
-  color: white;
-  font-size: 10px;
+const Img = styled.img`
+border-radius: 50%;
 `;
 
 const Chartbar = () => {
@@ -160,8 +157,12 @@ const Chartbar = () => {
                 <MiddleContainer>
                   <Container>
                     <p>
-                      Percent Conversions<Tool data-tip="Conservative">i</Tool>{" "}
-                      from Conservative management to Surgery in first 60 days
+                      Percent Conversions<ReactTooltip /><Tool  data-tip="Percent Conversions">
+                      
+                      <Img src={img1} alt="ToolTip" width="15px" height="15px"/>
+                      </Tool> from Conservative management to
+                      Surgery in first 60 days
+                      
                     </p>
                     <Mid>
                       <P>

@@ -25,7 +25,9 @@ const AreaChart = () => {
       name: "Average Sergeries",
       data: chartValues?.conservManagement,
     },
+   
   ];
+  
   const options = {
     chart: {
       height: 350,
@@ -33,13 +35,16 @@ const AreaChart = () => {
       toolbar: {
         show: false,
       },
+    
     },
-
+ 
+    colors: ['#54D8FF', '#A3A1FB'],
     markers: {
-      size: 3,
-      colors: ["#FFFFFF"],
-
-      strokeWidth: 1,
+      size: 5,
+    colors: ["#ffffff"],
+    strokeColor: "#54D8FF",
+    strokeWidth: 3
+  
     },
     dataLabels: {
       enabled: false,
@@ -70,7 +75,7 @@ const AreaChart = () => {
         style: {
           color: undefined,
           fontSize: "12px",
-
+          colors: ['#54D8FF', '#A3A1FB'],
           fontWeight: 200,
           cssClass: "apexcharts-yaxis-title",
           formatter: (value) => value.toFixed(0) + "%",
@@ -79,18 +84,38 @@ const AreaChart = () => {
     },
     legend: {
       show: true,
-      showForSingleSeries: true,
+      showForSingleSeries: false,
       showForNullSeries: true,
       showForZeroSeries: true,
       position: "right",
-
+      horizontalAlign: "center",
+      floating: false,
+      fontSize: "10px",
+      color: ["#ED7152", "#99D9EA"],
       fontWeight: 200,
-      cssClass: "apexcharts-yaxis-title",
+      formatter: undefined,
+      inverseOrder: false,
+      
+     
+      tooltipHoverFormatter: undefined,
+      customLegendItems: [],
+      offsetX: 0,
+      offsetY: 0,
+      labels: {
+        colors: ["#ED7152", "#99D9EA"],
+        useSeriesColors: true,
+      },
     },
     fill: {
       opacity: 1,
-      colors: ["#C9F3FF", "#D9E9FF"],
+      colors: ['#54D8FF', '#A3A1FB'],
+      
     },
+    
+     labels: {
+       colors: ["#54D8FF", "#A4A1FB"],
+      useSeriesColors: true,
+     },
   };
 
   // legend: {

@@ -11,11 +11,13 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
+ 
 `;
 
 const NavigationButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #EBEBF1;
 `;
 const Button = styled.button`
   padding: 5px;
@@ -28,10 +30,12 @@ const Button = styled.button`
   align-items: center;
   padding-right: 8px;
   font-size: 12px;
-  background-color: #d3d9e3;
+ 
   /* color: #8ca6dc; */
   outline: none;
   border: none;
+  background-color: #E5E5E5;
+  color:#557FD5;
 `;
 const Span = styled.span`
   font-size: 16px;
@@ -39,6 +43,8 @@ const Span = styled.span`
   justify-content: center;
   align-items: center;
   margin-right: 5px;
+  background-color: #E5E5E5;
+  
 `;
 const Link = styled(NavLink)`
   width: 32.5%;
@@ -70,14 +76,14 @@ const Buttons = () => {
     <Div>
       <Container>
         {Object.keys(filterValues)?.map((e) => (
-          <Button key={e}>
+          <Button key={e} style={{ display: filterValues[e] === 2 && "none" }}>
             {/* <Span>20-50 years</Span> */}
             <Span>
               {e === "Age"
                 ? `${filterValues[e]?.min}-${filterValues[e]?.max} Years`
-                : `${e} ${filterValues[e]}`}
+                : filterValues[e] !== 2 && `${e} ${filterValues[e]}`}
             </Span>
-            <Span>x</Span>
+            <Span>{filterValues[e] !== 2 && "x"}</Span>
           </Button>
         ))}
       </Container>

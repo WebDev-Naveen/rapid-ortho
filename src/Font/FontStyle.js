@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import Black from "../assets/fonts/Poppins-Black.ttf";
 import Bold from "../assets/fonts/Poppins-Bold.ttf";
 import SemiBold from "../assets/fonts/Poppins-SemiBold.ttf";
-import Medium from "../assets/fonts/Poppins-Medium.ttf";
+import Medium from "../assets/fonts/Poppins-Regular.ttf";
 import Light from "../assets/fonts/Poppins-Light.ttf";
 const FontStyle = createGlobalStyle`
 @font-face {

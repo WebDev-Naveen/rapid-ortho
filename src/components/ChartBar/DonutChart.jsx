@@ -22,8 +22,9 @@ const DonutChart = ({ value }) => {
     chart: {
       type: "donut",
       width: "100%",
+      
     },
-
+    colors: ['#ED7152', '#99D9EA'],
     dataLabels: {
       enabled: false,
       minAngleToShowLabel: 50,
@@ -43,7 +44,7 @@ const DonutChart = ({ value }) => {
       horizontalAlign: "center",
       floating: false,
       fontSize: "10px",
-      fontFamily: "Helvetica, Arial",
+      color: ["#ED7152", "#99D9EA"],
       fontWeight: 800,
       formatter: undefined,
       inverseOrder: false,
@@ -54,7 +55,7 @@ const DonutChart = ({ value }) => {
       offsetX: 0,
       offsetY: 0,
       labels: {
-        colors: ["red"],
+        colors: ["#ED7152", "#99D9EA"],
         useSeriesColors: true,
       },
     },
@@ -79,7 +80,7 @@ const DonutChart = ({ value }) => {
         options={options}
         series={series}
         type="donut"
-        style={{ fill: "red" }}
+        // style={{ fill: "red" }}
         width={420}
         height={350}
       />

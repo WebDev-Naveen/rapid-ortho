@@ -6,7 +6,8 @@ import PromiseScores from "./PromiseScores";
 import { ChartValuesContext } from "../../utils/Contexts/ChartValues";
 import { getAvgInitialSurgAndConservativeManagement } from "../../utils/getAvgInitialSurgAndConservativeManagement";
 import ProgressChart from "./ProgressChart";
-import ReactTooltip from "react-tooltip";
+import ReactTooltip from 'react-tooltip';
+import img1 from "../../assets/images/icon.ico";
 
 const PromisContainer = styled.div`
   display: flex;
@@ -47,14 +48,9 @@ const Span1 = styled.span`
   margin-left: 150px;
 `;
 const Tool = styled.span`
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  margin-left: 2px;
-  margin-top: -50px;
-  color: white;
-  font-size: 8px;
+ margin-left: 5px;
+ margin-top: 5px;
+ 
 `;
 
 const LineBar = () => {
@@ -159,6 +155,7 @@ const LineBar = () => {
   return (
     <div className="wrapper">
       <div className="stackBar">
+      
         <StackBar text={"Sane & constant Scores"} value={stackBarValues} />
       </div>
       <div className="forword">
@@ -190,14 +187,16 @@ const LineBar = () => {
             },
           ]}
         />
-        <ReactTooltip />
+        
       </div>
 
       <div className="progress">
         <Par>
           Pain Scores
           <ReactTooltip />
-          <Tool data-tip="Conservative">i</Tool>
+          <Tool data-tip="Conservative">
+          <img src={img1} alt="ToolTip" width="15px" height="15px"/>
+          </Tool>
         </Par>
         {painScores?.painInitial.map((val, index) => (
           <React.Fragment key={index}>
@@ -233,54 +232,16 @@ const LineBar = () => {
           </React.Fragment>
         ))}
 
-        {/* <Prog>Six Months</Prog>
-        <Span>0</Span>
-        <Span1>5</Span1>
-        <Span1>10</Span1>
-        <Style>
-          <ProgressChart bgcolor="#A3A1FB" progress="20" height={15} />
-        </Style>
-        <Span>0</Span>
-        <Span1>5</Span1>
-        <Span1>10</Span1>
-        <Style>
-          <ProgressChart bgcolor="#5CDAFE" progress="20" height={15} />
-        </Style>
-
-        <Prog>One Year</Prog>
-        <Span>0</Span>
-        <Span1>5</Span1>
-        <Span1>10</Span1>
-        <Style>
-          <ProgressChart bgcolor="#A3A1FB" progress="20" height={15} />
-        </Style>
-        <Span>0</Span>
-        <Span1>5</Span1>
-        <Span1>10</Span1>
-        <Style>
-          <ProgressChart bgcolor="#5CDAFE" progress="20" height={15} />
-        </Style>
-
-        <Prog>Two Year</Prog>
-        <Span>0</Span>
-        <Span1>5</Span1>
-        <Span1>10</Span1>
-        <Style>
-          <ProgressChart bgcolor="#A3A1FB" progress="20" height={15} />
-        </Style>
-        <Span>0</Span>
-        <Span1>5</Span1>
-        <Span1>10</Span1>
-        <Style>
-          <ProgressChart bgcolor="#5CDAFE" progress="20" height={15} />
-        </Style> */}
+    
       </div>
 
       <div className="promise">
         <P>
           PROMIS-PF Scores
           <ReactTooltip />
-          <Tool data-tip="Conservative">i</Tool>
+          <Tool data-tip="PROMIS-PF Scores">
+          <img src={img1} alt="ToolTip" width="15px" height="15px"/>
+          </Tool>
         </P>
         <PromisContainer>
           <Container>

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LineBar from "./LineBar";
 import ReactTooltip from "react-tooltip"
-
+import img1 from "../../assets/images/icon.ico";
 const MainContainer = styled.div`
   /* height: fit-content; */
   background-color: #fff;
@@ -45,16 +45,8 @@ const P = styled.span`
   margin-left: 30px;
 `;
 const Tool = styled.span`
-  padding-left:5px;
-  padding-right:5px;
-  padding-top:5px;
-  background-color: #5cdafe;
-  border-radius: 50%;
-  margin-left:2px; 
- 
-  color:white;
-  font-size: 12px;
- 
+ margin-left: 5px;
+ margin-top: 10px;
 `;
 
 const MeanOutcomeScores = () => {
@@ -62,10 +54,14 @@ const MeanOutcomeScores = () => {
     <MainContainer>
       <Container>
         <Div>
-          <P>Initial Surgery<ReactTooltip/><Tool data-tip="Conservative">i</Tool></P>
+          <P>Initial Surgery<ReactTooltip/><Tool data-tip="Initial Surgery">
+          <img src={img1} alt="logo" width="15px" height="15px"/> 
+          </Tool></P>
         </Div>
         <Div2>
-          <P>Conservative Management<ReactTooltip/><Tool data-tip="Conservative">i</Tool></P>
+          <P>Conservative Management<ReactTooltip/><Tool data-tip="onservative Management">
+          <img src={img1} alt="logo" width="15px" height="15px"/> 
+          </Tool></P>
         </Div2>
       </Container>
       <LineBar />
