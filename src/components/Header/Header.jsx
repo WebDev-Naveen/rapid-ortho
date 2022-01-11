@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import img1 from "../../assets/images/logo.jpg";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch,faComments,faBell } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearch,
+  faComments,
+  faBell,
+} from "@fortawesome/free-solid-svg-icons";
 import img2 from "../../assets/images/bb.png";
 
 const Nav = styled.nav`
@@ -14,8 +18,11 @@ const Nav = styled.nav`
   font-size: 18px;
   background: white;
   padding: 20px;
+  font-family: "Poppins";
 `;
-const Search = styled.div``;
+const Search = styled.div`
+  margin-right: 10px;
+`;
 const H6 = styled.h6`
   margin-top: 2px;
   margin-left: 5px;
@@ -35,7 +42,7 @@ const SecondContainer = styled.div`
       text-decoration: none;
       color: #555;
       font-size: 16px;
-      font-family: sans-serif;
+      /* font-family: sans-serif; */
       border: none;
       background: white;
     }
@@ -57,7 +64,7 @@ const Container = styled.div`
       text-decoration: none;
       color: #555;
       font-size: 16px;
-      font-family: sans-serif;
+
       border: none;
       background: white;
     }
@@ -68,6 +75,8 @@ const Select = styled.select`
   border: none;
   border: 0px;
   outline: 0px;
+  font-family: "Poppins";
+  height: 30px;
 `;
 const Span = styled.span`
   position: absolute;
@@ -108,22 +117,30 @@ const Header = () => {
   return (
     <>
       <Nav>
-        <Search><FontAwesomeIcon icon={faSearch} color="#E6E6EC" /></Search>
+        <Search>
+          <FontAwesomeIcon icon={faSearch} color="#E6E6EC" />
+        </Search>
         <H6>Have a question?</H6>
         <SecondContainer>
           <ul>
             <li>
-              <button><Img src={img2} alt="Header" width="25px" height="25px" /></button>
+              <button>
+                <Img src={img2} alt="Header" width="25px" height="25px" />
+              </button>
             </li>
           </ul>
         </SecondContainer>
         <Container>
           <ul>
             <li>
-              <button><FontAwesomeIcon icon={faComments} color="#BCBCCB" /></button>
+              <button>
+                <FontAwesomeIcon icon={faComments} color="#BCBCCB" />
+              </button>
             </li>
             <li>
-              <button><FontAwesomeIcon icon={faBell} color="#BCBCCB" /></button>
+              <button>
+                <FontAwesomeIcon icon={faBell} color="#BCBCCB" />
+              </button>
               <Span className="badge"></Span>
             </li>
             <li>

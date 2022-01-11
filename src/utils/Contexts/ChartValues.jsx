@@ -16,6 +16,7 @@ function ChartValuesProvider(props) {
 
     mockData.forEach((data) => {
       let filterTrueCount = 0;
+
       for (let i in filterValues) {
         if (i in data) {
           if (i !== "Age") {

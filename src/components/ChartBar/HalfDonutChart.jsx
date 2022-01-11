@@ -5,15 +5,6 @@ const HalfDonutChart = ({ colors, rate }) => {
   const series = [rate];
   const options = {
     chart: {
-      dropShadow: {
-        enabled: true,
-        enabledOnSeries: undefined,
-        top: 0,
-        left: 0,
-        blur: 0,
-        color: '#000',
-        opacity: 0
-    },
       type: "radialBar",
       offsetY: -20,
       sparkline: {
@@ -26,16 +17,8 @@ const HalfDonutChart = ({ colors, rate }) => {
         endAngle: 90,
         track: {
           background: "#e7e7e7",
-          strokeWidth: "97%",
+
           margin: 5, // margin is in pixels
-          dropShadow: {
-            enabled: true,
-            top: 2,
-            left: 0,
-            color: "#999",
-            opacity: 1,
-            blur: 2,
-          },
         },
         colors: ["#99d9ea", "#ED7152"],
         dataLabels: {
@@ -51,9 +34,9 @@ const HalfDonutChart = ({ colors, rate }) => {
             top: 1,
             left: 1,
             blur: 1,
-            color: '#000',
-            opacity: 0.45
-        },
+            color: "#000",
+            opacity: 0.45,
+          },
         },
       },
     },
@@ -83,23 +66,23 @@ const HalfDonutChart = ({ colors, rate }) => {
       offsetX: 0,
       offsetY: 0,
       hollow: {
-          margin: 5,
-          size: '50%',
-          background: 'transparent',
-          image: undefined,
-          imageWidth: 150,
-          imageHeight: 150,
-          imageOffsetX: 0,
-          imageOffsetY: 0,
-          imageClipped: true,
-          position: 'front',
-          dropShadow: {
-            enabled: true,
-            top: 0,
-            left: 0,
-            blur: 3,
-            opacity: 0.5
-          }
+        margin: 5,
+        size: "50%",
+        background: "transparent",
+        image: undefined,
+        imageWidth: 150,
+        imageHeight: 150,
+        imageOffsetX: 0,
+        imageOffsetY: 0,
+        imageClipped: true,
+        position: "front",
+        dropShadow: {
+          enabled: true,
+          top: 0,
+          left: 0,
+          blur: 3,
+          opacity: 0.5,
+        },
       },
     },
   };

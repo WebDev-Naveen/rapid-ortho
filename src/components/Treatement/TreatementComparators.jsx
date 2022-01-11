@@ -13,6 +13,7 @@ import img1 from "../../assets/images/icon.ico";
 const MainContainer = styled.div`
   background: #fff;
   padding-bottom: 20px;
+  width: 100%;
 `;
 
 const HalfChartContainer = styled.div`
@@ -70,8 +71,6 @@ const P = styled.p`
 `;
 const Tool = styled.span``;
 
-
-
 const TreatementComparators = () => {
   const { filteredChartValues } = useContext(ChartValuesContext);
 
@@ -108,7 +107,13 @@ const TreatementComparators = () => {
               data-tip
               data-for="sad"
             />
-            <ReactTooltip id="sad" className="Tooltip" type="dark" place="bottom" effect="solid">
+            <ReactTooltip
+              id="sad"
+              className="Tooltip"
+              type="dark"
+              place="bottom"
+              effect="solid"
+            >
               <span>
                 Early or Intial Surgery is <br></br> defined as patients
                 receiving surgical treatment<br></br> within 30 days of
@@ -126,7 +131,7 @@ const TreatementComparators = () => {
           <P1>
             Initial-Conservative Management Rate
             <ReactTooltip />
-             <img
+            <img
               src={img1}
               alt="ToolTip"
               width="15px"
@@ -134,17 +139,21 @@ const TreatementComparators = () => {
               data-tip
               data-for="sadjk"
             />
-            <ReactTooltip id="sadjk" className="Tooltip" type="dark" place="bottom" effect="solid">
+            <ReactTooltip
+              id="sadjk"
+              className="Tooltip"
+              type="dark"
+              place="bottom"
+              effect="solid"
+            >
               <span>
                 Conservative Treatement is <br></br> defined as patients
                 receiving surgical treatment<br></br> within 30 days of
                 diagnosis
               </span>
             </ReactTooltip>
-           
           </P1>
-         
-         
+
           <HalfDonutChart
             colors={["#FFDA83", "#F0F2F8"]}
             rate={rate?.conservManagement}

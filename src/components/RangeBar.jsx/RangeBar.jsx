@@ -32,7 +32,7 @@ const RangeBar = ({ min, max, name, value, onChange }) => {
       max={max}
     >
       <input
-        id="min"
+        id={name}
         className="styled-slider slider-progress"
         style={{ width: "100%" }}
         name={name}
@@ -44,7 +44,6 @@ const RangeBar = ({ min, max, name, value, onChange }) => {
         onChange={handleChange}
       />
       <span>{value}</span>
-      {/* <input type="range" /> */}
     </RangeBarContainer>
   );
 };

@@ -4,11 +4,14 @@ import { Controller, useFormContext } from "react-hook-form";
 
 const Container = styled.div`
   display: flex;
+  width: 110px;
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  margin-left: 10px;
+  /* border: 1px solid black; */
   span {
-    margin-left: 10px;
+    /* margin-left: 10px; */
   }
 `;
 
@@ -23,7 +26,6 @@ const Toggle = styled.div`
       : "2px solid #70cb91"};
   background: ${(props) =>
     props.value === 0 ? "#F98E8E" : props.value === 1 && "#70cb91"};
-  /* background: ${(props) => (props.value === 2 ? "#999999" : "white")};*/
 `;
 
 const Input = styled.input`
@@ -35,53 +37,26 @@ const Input = styled.input`
         ? "2px solid #F98E8E"
         : "2px solid #70cb91"};
     background: ${(props) => (props.valueChecked === 2 ? "#999999" : "white")};
-
-    /* background: ${(props) =>
-      props.valueChecked === 0
-        ? "#F98E8E"
-        : props.valueChecked === 1 && "#70cb91"}; */
   }
 `;
 
 const SwitchToggleContainer = styled.div`
-  width: 30%;
+  /* width: 30%; */
+  width: 100px;
+`;
+
+const ToggleValue = styled.span`
+  width: 30px;
 `;
 
 const SwitchToggleWithTitle = (props) => {
   const { name } = props;
   const { control } = useFormContext();
-  // const handleChange = (data) => {
-  //   onChange(data);
-  // };
 
-  // const toggleStyle = {
-  //   selectedStyle: {
-  //     boxSizing: "border-box",
-  //     background: value === "Mid" ? "#999999" : "white",
-  //     border: "none",
-  //     borderRadius: 4,
-
-  //     height: 14,
-  //   },
-  //   wrapperStyle: {
-  //     height: 26,
-  //     width: 60,
-  //     boxSizing: "border-box",
-  //     background: value === "No" ? "#F98E8E" : value === "Yes" && "#70cb91",
-
-  //     borderRadius: 10,
-  //     border:
-  //       value === "Mid"
-  //         ? "2px solid #999999"
-  //         : value === "No"
-  //         ? "2px solid #F98E8E"
-  //         : "2px solid #70cb91",
-  //   },
-  // };
   return (
     <Controller
       name={name}
-      defaultValue={0}
+      defaultValue={2}
       control={control}
       render={({ field }) => (
         <Container {...props}>
@@ -131,9 +106,9 @@ const SwitchToggleWithTitle = (props) => {
               </div>
             </Toggle>
           </SwitchToggleContainer>
-          <span style={{ opacity: field.value === 2 && "0" }}>
+          <ToggleValue style={{ opacity: field.value === 2 && "0" }}>
             {field.value === 1 ? "Yes" : field.value === 0 ? "No" : "Mid"}
-          </span>
+          </ToggleValue>
         </Container>
       )}
     />

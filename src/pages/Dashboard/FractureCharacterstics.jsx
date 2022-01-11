@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DropDown from "../../components/DropDown/DropDown";
-import ReactTooltip from 'react-tooltip';
+import ReactTooltip from "react-tooltip";
 import SwitchToggleWithTitle from "../../components/SwitchToggle/SwitchToggleWithTitle";
 import img1 from "../../assets/images/icon.ico";
 const MainContainer = styled.section`
@@ -30,8 +30,8 @@ const AmountOFDisplacement = styled.div`
   align-items: center;
 `;
 const Tool = styled.span`
- margin-bottom: 50px;
- margin-left: 5px;
+  margin-bottom: 50px;
+  margin-left: 5px;
 `;
 const Location = styled(AmountOFDisplacement)`
   width: 49%;
@@ -43,16 +43,19 @@ const Parts = styled(AmountOFDisplacement)`
 const FractureCharacterstics = () => {
   return (
     <MainContainer>
-      <Location style={{ width: "45%" }}>
-        <Title style={{ width: "65%" }}>Injury of dominant shoulder
-        <ReactTooltip/><Tool data-tip="Injury of dominant shoulder">
-        <img src={img1} alt="ToolTip" width="15px" height="15px"/> 
-        </Tool></Title>
+      <Location style={{ width: "50%" }}>
+        <Title style={{ width: "65%" }}>
+          Injury of dominant shoulder
+          <ReactTooltip />
+          <Tool data-tip="Injury of dominant shoulder">
+            <img src={img1} alt="ToolTip" width="15px" height="15px" />
+          </Tool>
+        </Title>
         <SwitchToggleWithTitle name={"Dominant_side"} />
       </Location>
       <SelectDetails>
         <FirstContainer>
-          <Location style={{ width: "45%" }}>
+          <Location style={{ width: "50%" }}>
             <Title>Fracture displaced</Title>
             <SwitchToggleWithTitle name={"Displaced"} />
           </Location>
@@ -60,9 +63,9 @@ const FractureCharacterstics = () => {
           <AmountOFDisplacement>
             <Title style={{ width: "60%" }}>Amount of Displacement </Title>
             <DropDown
-              options={["Small", "Medium", "Large", "NA"]}
+              options={["NA", "Small", "Medium", "Large"]}
               name="Amt_displace"
-              width="100px"
+              width="120px"
             />
           </AmountOFDisplacement>
         </FirstContainer>
@@ -74,8 +77,8 @@ const FractureCharacterstics = () => {
           </Title>
           <DropDown
             options={[
-              "Surgical neck",
               "Greater Tuberosity",
+              "Surgical neck",
               "Head",
               "Upper end",
             ]}
@@ -95,9 +98,12 @@ const FractureCharacterstics = () => {
             />
           </Parts>
           <AmountOFDisplacement>
-            <Title style={{ width: "70%" }}>Other concurrent fractures
-            <ReactTooltip/><Tool data-tip="Other concurrent fractures">
-            <img src={img1} alt="ToolTip" width="15px" height="15px"/> </Tool>
+            <Title style={{ width: "70%" }}>
+              Other concurrent fractures
+              <ReactTooltip />
+              <Tool data-tip="Other concurrent fractures">
+                <img src={img1} alt="ToolTip" width="15px" height="15px" />{" "}
+              </Tool>
             </Title>
             <SwitchToggleWithTitle name={"Other_fx"} />
           </AmountOFDisplacement>
