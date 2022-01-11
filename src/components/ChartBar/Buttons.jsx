@@ -118,7 +118,7 @@ const Buttons = () => {
         if (
           (filterValues[i]?.max !== 110 && filterValues[i]?.min !== 0) ||
           filterValues[i]?.max < 110 ||
-          filterValues[i] > 0
+          filterValues[i]?.min > 0
         ) {
           names.push({
             label: i,

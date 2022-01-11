@@ -8,7 +8,37 @@ import img1 from "../../assets/images/icon.ico";
 import { ChartValuesContext } from "../../utils/Contexts/ChartValues";
 import SwitchToggleWithTitle from "../../components/SwitchToggle/SwitchToggleWithTitle";
 import ReactTooltip from "react-tooltip";
+import { createGlobalStyle } from "styled-components";
 
+const GlobalStyles = createGlobalStyle`
+ input[type="range"]#min::-webkit-slider-runnable-track {
+  background: linear-gradient(#999999, #999999) 0 / var(--sx) 100% no-repeat,
+    #fecb2e;
+    }
+     input[type="range"]#max::-webkit-slider-runnable-track {
+  background: linear-gradient(#fecb2e, #fecb2e) 0 / var(--sx) 100% no-repeat,
+    #999999;
+     }
+     .bubble {
+  
+  color: #000;
+  ${"" /* padding: 4px 12px; */}
+  position: absolute;
+  border-radius: 4px;
+  top:20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  ${"" /* background: red; */}
+  ${"" /* top: 10px; */}
+  left: 50%;
+}
+`;
 const SideBarContainer = styled.div`
   width: 98%;
   display: flex;
@@ -123,6 +153,7 @@ const SideBar = () => {
 
   return (
     <MainContainer>
+      <GlobalStyles />
       <SideBarContainer>
         <Div>
           <H1>Patient Search Criteria</H1>
@@ -151,7 +182,9 @@ const SideBar = () => {
                   />
                 )}
               />
-              <span style={{ position: "absolute", top: "20px" }}>0</span>
+              <span style={{ position: "absolute", top: "20px", left: "4px" }}>
+                0
+              </span>
             </RangeBarContainerDesc>
             <div className="blocker"></div>
             <RangeBarContainerDesc>
@@ -169,7 +202,7 @@ const SideBar = () => {
                   />
                 )}
               />
-              <span style={{ position: "absolute", left: "92%", top: "20px" }}>
+              <span style={{ position: "absolute", left: "95%", top: "20px" }}>
                 110
               </span>
             </RangeBarContainerDesc>
